@@ -1,6 +1,6 @@
-<h2>Verificar URL</h2>
-<form method="post">
-    {% csrf_token %}
-    <input type="text" name="url" placeholder="Digite a URL">
-    <button type="submit">Verificar</button>
-</form>
+<h2>Resultado da verificação</h2>
+<p>URL: {{ url }}</p>
+<p>Status: {{ status }}</p>
+<a href="{% url 'verificar' %}">Verificar outra</a>
+
+

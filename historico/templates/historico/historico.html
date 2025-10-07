@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Verificador de Links</title>
+</head>
+<body>
+    <h1>Verificador de Links</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="url" name="url" placeholder="Coloque o link aqui" required>
+        <button type="submit">Verificar</button>
+    </form>
+
+    {% if resultado %}
+        <h2>Resultado:</h2>
+        <p>URL: {{ resultado.url }}</p>
+        <p>Seguro: {{ resultado.seguro }}</p>
+        <p>Info: {{ resultado.info }}</p>
+    {% endif %}
+
+    <h2>Histórico:</h2>
+    <ul>
+        {% for link in historico %}
+            <li>{{ link.url }} - Seguro: {{ link.seguro }}</li>
+        {% empty %}
+            <li>Nenhum link verificado ainda.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

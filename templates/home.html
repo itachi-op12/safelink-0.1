@@ -1,0 +1,12 @@
+
+{% block title %}Bem-vindo{% endblock %}
+
+{% block content %}
+<h1>Bem-vindo ao SafeLink </h1>
+<p>Verifique se um site é seguro ou não!</p>
+
+<div style="margin-top: 20px;">
+  <a href="{% url 'login' %}"><button>Entrar</button></a>
+  <a href="{% url 'cadastro' %}"><button>Cadastrar-se</button></a>
+</div>
+{% endblock %}

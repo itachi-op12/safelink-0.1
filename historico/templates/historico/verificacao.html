@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Verificar Site{% endblock %}
+{% block content %}
+<h1>Verificação de Sites</h1>
+<p>Digite o link para verificar se é seguro:</p>
+
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="url" placeholder="https://exemplo.com" required>
+  <button type="submit">Verificar</button>
+</form>
+
+<br>
+<a href="{% url 'historico' %}">
+  <button>Ver histórico de links verificados</button>
+</a>
+{% endblock %}

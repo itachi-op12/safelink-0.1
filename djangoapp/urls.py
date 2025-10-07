@@ -18,25 +18,18 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from django.shortcuts import redirect
-from usuario import views
-
-def home_redirect(request):
-    if request.user.is_authenticated:
-        
-        return redirect('verificacao')  
-    else:
-       
-        return redirect('login')
+from django.views.generic import TemplateView
+from . import views
 
 urlpatterns = [
-    
+    path('', views.home, name='home'),
+    path('verificar/', views.verificar, name='verificar'),
+    path('historico/', include('historico.urls')),
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'), 
+    path('historico/', include('historico.urls')),
+    path("", include("historico.urls")),
+    
+    path('', TemplateView.as_view(template_name='home.html'), name='home'), 
     path('usuario/', include('usuario.urls')),
     path('historico/', include('historico.urls')),
-    path('plano/', include('plano.urls')),
 ]
-
-
-

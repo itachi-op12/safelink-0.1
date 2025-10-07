@@ -1,4 +1,8 @@
-<h2>Resultado da verificação</h2>
-<p>URL: {{ url }}</p>
-<p>Status: {{ status }}</p>
-<a href="{% url 'verificar_url' %}">Verificar outra</a>
+{% extends 'base.html' %}
+{% block title %}Histórico{% endblock %}
+{% block content %}
+<h1>Histórico de Links Verificados</h1>
+<p>Aqui você verá todos os sites que já foram verificados.</p>
+
+<a href="{% url 'verificacao' %}"><button>Voltar para verificação</button></a>
+{% endblock %}
