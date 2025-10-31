@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Planos</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #c8ebff, #b0dfff);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #003c8f;
+        }
+
+        .planos-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .plano-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            width: 260px;
+            box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .plano-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .plano-card h2 {
+            color: #004aad;
+            margin-bottom: 10px;
+        }
+
+        .preco {
+            font-size: 1.5em;
+            color: #0081d6;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .descricao {
+            color: #444;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+        }
+
+        .btn-assinar {
+            background: #0073e6;
+            color: white;
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .btn-assinar:hover {
+            background: #005bb5;
+        }
+    </style>
+</head>
+<body>
+
+    <h1><strong>Escolha</strong> o seu plano</h1>
+    <p>Aproveite os benefícios premium do SafeLink — mais velocidade, histórico ilimitado e prioridade nas verificações.</p>
+
+    <div class="planos-container">
+        {% for plano in planos %}
+            <div class="plano-card">
+                <h2>{{ plano.nome }}</h2>
+                <p class="preco">{{ plano.preco }}</p>
+                <p class="descricao">{{ plano.descricao }}</p>
+                <a href="{% url 'pagamento' %}?plano={{ plano.nome }}" class="btn-assinar">Assinar</a>
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

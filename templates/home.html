@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeLink</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  
+    body {
+      background: linear-gradient(-45deg, #8ab5e0, #a29bfe, #81ecec, #0984e3);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    
+
+    .floating-lock {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .fade-in {
+      animation: fadeIn 1.2s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center h-screen text-center text-white font-sans">
+
+  <nav class="absolute top-0 left-0 w-full flex justify-between items-center px-10 py-5 bg-blue-700/60 backdrop-blur-sm shadow-md">
+    <h1 class="text-2xl font-bold">🔒 SafeLink</h1>
+    <div class="space-x-6">
+      <a href="#" class="hover:text-yellow-300 transition">Planos</a>
+      <a href="#" class="hover:text-yellow-300 transition">Perfil</a>
+    </div>
+  </nav>
+
+  <div class="fade-in mt-10">
+    <h2 class="text-4xl md:text-6xl font-bold mb-3">
+      Bem-vindo ao <span class="text-yellow-300">SafeLink</span>
+    </h2>
+    <p class="text-lg md:text-xl text-blue-100 mb-6">Verifique se um link é seguro antes de clicar!</p>
+
+    <div class="floating-lock text-5xl mb-6"> 🤖</div>
+
+    <a href="/login/" class="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-semibold px-8 py-3 rounded-full shadow-lg transition transform hover:scale-105">
+      Entrar
+    </a>
+  </div>
+
+</body>
+</html>

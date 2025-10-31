@@ -1,2 +1,5 @@
 Django>=5.2.6,<5.3
 pillow>=11.3.0,<11.4
+
+#<a class="nav-link" href="/logout/">Sair</a>
+#<a href="{% url 'verificar_link' %}" class="btn btn-info m-2">Verificar Link Agora</a>

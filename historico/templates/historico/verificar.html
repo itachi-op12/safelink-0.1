@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+    <div class="card p-4">
+        <h3 class="text-center text-primary">🔍 Verificar Link</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.url }}
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Verificar</button>
+        </form>
+
+        {% if resultado %}
+        <div class="alert mt-3 {% if resultado.status == 'Seguro' %}alert-success{% elif resultado.status == 'Suspeito' %}alert-warning{% else %}alert-danger{% endif %}">
+            <strong>{{ resultado.status }}</strong> — {{ resultado.url }}
+        </div>
+        {% endif %}
+      
+    </div>
+
+    <div class="card mt-4 p-3">
+        <h4>🕒 Últimos links verificados</h4>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Link</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in historicos %}
+                <tr>
+                    <td><a href="{{ item.url }}" target="_blank">{{ item.url }}</a></td>
+                    <td>
+                        {% if item.status == "Seguro" %}
+                            <span class="badge bg-success">{{ item.status }}</span>
+                        {% elif item.status == "Suspeito" %}
+                            <span class="badge bg-warning text-dark">{{ item.status }}</span>
+                        {% else %}
+                            <span class="badge bg-danger">{{ item.status }}</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ item.data|date:"d/m/Y H:i" }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="3" class="text-center text-muted">Nenhum link verificado ainda.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

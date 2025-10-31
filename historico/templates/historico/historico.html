@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Seu histórico de verificações</h2>
+<table class="table table-striped">
+    <tr><th>URL</th><th>Status</th><th>Data</th></tr>
+    {% for item in historicos %}
+    <tr>
+        <td>{{ item.url }}</td>
+        <td>{{ item.status }}</td>
+        <td>{{ item.data|date:"d/m/Y H:i" }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
