@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>Cadastro de Usuário</title>
 </head>
 <body>
@@ -11,5 +12,18 @@
         {{ form.as_p }}
         <button type="submit">Cadastrar</button>
     </form>
+=======
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1>Cadastro de Usuário</h1>
+    <form method="POST" action="{% url 'cadastro' %}">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Usuário">
+    <input type="password" name="password" placeholder="Senha">
+    <button type="submit">Cadastrar</button>
+</form>
+
+>>>>>>> 5a07cf1c289e548f0c79e7e5e8f00fd7a886097e
 </body>
 </html>

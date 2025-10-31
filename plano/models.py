@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 class Plano(models.Model):
     nome = models.CharField(max_length=50)
     preco = models.DecimalField(max_digits=6, decimal_places=2)
+<<<<<<< HEAD
     duracao = models.CharField(max_length=20)  
     descricao = models.TextField(blank=True, null=True)
 
@@ -17,3 +18,9 @@ class PlanoAtivo(models.Model):
 
     def __str__(self):
         return f"{self.usuario.username} - {self.plano.nome}"
+=======
+    limite_verificacoes = models.IntegerField(default=10)
+
+    def __str__(self):
+        return f"{self.nome} - R${self.preco}"
+>>>>>>> 5a07cf1c289e548f0c79e7e5e8f00fd7a886097e

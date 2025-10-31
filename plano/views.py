@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Plano, PlanoAtivo
@@ -29,3 +30,19 @@ def confirmar_pagamento(request, plano_id):
     plano = get_object_or_404(Plano, id=plano_id)
     return render(request, "plano/confirma_pagamento.html", {"plano": plano})
 
+=======
+from django.urls import path
+from django.http import HttpResponse
+
+
+def plano_list(request):
+    return HttpResponse("Página de planos funcionando!")
+
+
+def placeholder_view(request):
+    return HttpResponse("Página de planos funcionando!")
+
+urlpatterns = [
+    path('', placeholder_view, name='plano_home'),
+]
+>>>>>>> 5a07cf1c289e548f0c79e7e5e8f00fd7a886097e

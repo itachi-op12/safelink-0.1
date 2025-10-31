@@ -1,8 +1,10 @@
+from django.contrib.auth.models import User
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import timedelta
 
+<<<<<<< HEAD
 
 class Plano(models.Model):
     nome = models.CharField(max_length=50)
@@ -49,3 +51,12 @@ class PerfilUsuario(models.Model):
     
 
     
+=======
+class Perfil(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    plano = models.ForeignKey('plano.Plano', on_delete=models.SET_NULL, null=True, blank=True)
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.user.username
+>>>>>>> 5a07cf1c289e548f0c79e7e5e8f00fd7a886097e
